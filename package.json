@@ -1,0 +1,8 @@
+{
+  "name": "michael-cardoso-lp",
+  "version": "1.0.0",
+  "description": "Landing page estática de Michael Cardoso - Comunicação Visual Estratégica",
+  "scripts": {
+    "build": "vite build"
+  }
+}
