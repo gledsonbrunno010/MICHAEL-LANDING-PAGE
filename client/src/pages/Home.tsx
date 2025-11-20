@@ -4,6 +4,27 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: ""
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleImageClick = (src: string) => {
+    setSelectedImage(src);
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -159,7 +180,12 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Projeto 1 */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img src="/produto-1.png" alt="Fachada em ACM Supergás Brás" className="w-full h-64 object-cover" />
+              <img
+                src="/produto-1.png"
+                alt="Fachada em ACM Supergás Brás"
+                className="w-full h-64 object-cover cursor-pointer"
+                onClick={() => handleImageClick("/produto-1.png")}
+              />
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-[#003366] mb-2">Fachada em ACM Supergás Brás</h3>
                 <p className="text-gray-600 mb-4">Fachada em ACM e Letra Caixa</p>
@@ -172,12 +198,17 @@ export default function Home() {
 
             {/* Projeto 2 (Antigo Projeto 5) */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img src="/produto-5.jpg" alt="Projeto 5" className="w-full h-64 object-cover" />
+              <img
+                src="/produto-5.jpg"
+                alt="Projeto 5"
+                className="w-full h-64 object-cover cursor-pointer"
+                onClick={() => handleImageClick("/produto-5.jpg")}
+              />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Projeto 5</h3>
-                <p className="text-gray-600 mb-4">Descrição do projeto 5</p>
+                <h3 className="text-2xl font-bold text-[#003366] mb-2">Ocidental Shopping</h3>
+                <p className="text-gray-600 mb-4">Toten para orientação dos clientes</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Detalhe do projeto</span>
+                  <span className="text-[#00a8ff] font-bold">Projeto elaborado por A3 Comunicação</span>
                   <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
                 </div>
               </div>
@@ -185,7 +216,12 @@ export default function Home() {
 
             {/* Projeto 3 */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img src="/produto-3.png" alt="V&C Studios" className="w-full h-64 object-cover" />
+              <img
+                src="/produto-3.png"
+                alt="V&C Studios"
+                className="w-full h-64 object-cover cursor-pointer"
+                onClick={() => handleImageClick("/produto-3.png")}
+              />
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-[#003366] mb-2">V&C Studios</h3>
                 <p className="text-gray-600 mb-4">Sinalização interna Completa</p>
@@ -198,7 +234,12 @@ export default function Home() {
 
             {/* Projeto 4 */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img src="/produto-4.jpg" alt="Sinalização Interna Shopping" className="w-full h-64 object-cover" />
+              <img
+                src="/produto-4.jpg"
+                alt="Sinalização Interna Shopping"
+                className="w-full h-64 object-cover cursor-pointer"
+                onClick={() => handleImageClick("/produto-4.jpg")}
+              />
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-[#003366] mb-2">Sinalização Interna Shopping</h3>
                 <p className="text-gray-600 mb-4">Visibilidade única para cada ambiente</p>
@@ -211,12 +252,17 @@ export default function Home() {
 
             {/* Projeto 5 (Antigo Projeto 2) */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img src="/produto-2.png" alt="Supermercados Bellavia" className="w-full h-64 object-cover" />
+              <img
+                src="/produto-2.png"
+                alt="Supermercados Bellavia"
+                className="w-full h-64 object-cover cursor-pointer"
+                onClick={() => handleImageClick("/produto-2.png")}
+              />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Supermercados Bellavia</h3>
-                <p className="text-gray-600 mb-4">Fachada em ACM e Letra caixa com iluminação pela face</p>
+                <h3 className="text-2xl font-bold text-[#003366] mb-2">UNIEURO CENTRO UNIVERSITÁRIO</h3>
+                <p className="text-gray-600 mb-4">Simbolo da Intituição realizado por nós</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Trabalho elaborado com excelência e qualidade</span>
+                  <span className="text-[#00a8ff] font-bold">Trabalho realizado com excelência e qualidade</span>
                   <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
                 </div>
               </div>
@@ -224,12 +270,17 @@ export default function Home() {
 
             {/* Projeto 6 */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img src="/produto-6.jpg" alt="Projeto 6" className="w-full h-64 object-cover" />
+              <img
+                src="/produto-6.jpg"
+                alt="Projeto 6"
+                className="w-full h-64 object-cover cursor-pointer"
+                onClick={() => handleImageClick("/produto-6.jpg")}
+              />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Projeto 6</h3>
-                <p className="text-gray-600 mb-4">Descrição do projeto 6</p>
+                <h3 className="text-2xl font-bold text-[#003366] mb-2">EUROBIKE</h3>
+                <p className="text-gray-600 mb-4">Letra Caixa para identificação de parques ou cidades</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Detalhe do projeto</span>
+                  <span className="text-[#00a8ff] font-bold">Identidade Visual bem definida</span>
                   <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
                 </div>
               </div>
@@ -237,12 +288,17 @@ export default function Home() {
 
             {/* Projeto 7 */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img src="/produto-7.jpg" alt="Projeto 7" className="w-full h-64 object-cover" />
+              <img
+                src="/produto-7.jpg"
+                alt="Projeto 7"
+                className="w-full h-64 object-cover cursor-pointer"
+                onClick={() => handleImageClick("/produto-7.jpg")}
+              />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Projeto 7</h3>
-                <p className="text-gray-600 mb-4">Descrição do projeto 7</p>
+                <h3 className="text-2xl font-bold text-[#003366] mb-2">Identificação de Casas</h3>
+                <p className="text-gray-600 mb-4">Corte em ACM para melhor identificação da sua casa</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Detalhe do projeto</span>
+                  <span className="text-[#00a8ff] font-bold">Elegância para o visual da sua casa</span>
                   <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
                 </div>
               </div>
@@ -349,22 +405,22 @@ export default function Home() {
             {/* Card 4 */}
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
               <CheckCircle className="w-12 h-12 text-[#00a8ff] mb-4" />
-              <h3 className="text-2xl font-bold text-[#003366] mb-3">Estratégia personalizada</h3>
-              <p className="text-gray-700">Nada de cópia. Tudo sob medida.</p>
+              <h3 className="text-2xl font-bold text-[#003366] mb-3">Visual Melhorado da sua Empresa</h3>
+              <p className="text-gray-700">Fachadas imponentes que geram valor</p>
             </div>
 
             {/* Card 5 */}
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
               <MessageSquare className="w-12 h-12 text-[#00a8ff] mb-4" />
-              <h3 className="text-2xl font-bold text-[#003366] mb-3">Suporte contínuo</h3>
-              <p className="text-gray-700">Acompanhamento mensal com relatório.</p>
+              <h3 className="text-2xl font-bold text-[#003366] mb-3">Suporte do Começo ao Fim</h3>
+              <p className="text-gray-700">Acompanhamento profissional</p>
             </div>
 
             {/* Card 6 */}
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
               <BarChart3 className="w-12 h-12 text-[#00a8ff] mb-4" />
-              <h3 className="text-2xl font-bold text-[#003366] mb-3">ROI comprovado</h3>
-              <p className="text-gray-700">R$1 investido → R$8 de retorno em 90 dias.</p>
+              <h3 className="text-2xl font-bold text-[#003366] mb-3">Investimento que Vale Cada Centavo</h3>
+              <p className="text-gray-700">Sua Empresa bem Vista no Mercado</p>
             </div>
           </div>
         </div>
@@ -381,29 +437,64 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Formulário */}
             <div className="bg-[#f8f9fa] p-8 rounded-lg">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2">Nome Completo</label>
-                  <input type="text" placeholder="Seu nome completo" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]" />
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Seu nome completo"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]"
+                  />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2">E-mail</label>
-                  <input type="email" placeholder="exemplo@empresa.com.br" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]" />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="exemplo@empresa.com.br"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]"
+                  />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2">Telefone</label>
-                  <input type="tel" placeholder="+55 61 99224-1209" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]" />
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="+55 61 99224-1209"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]"
+                  />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2">Nome da Empresa</label>
-                  <input type="text" placeholder="Sua empresa" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]" />
+                  <input
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    placeholder="Sua empresa"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]"
+                  />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2">Mensagem</label>
-                  <textarea placeholder="Minha fachada está quebrada. Preciso de ACM e LED. Me explica" rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]" />
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Minha fachada está quebrada. Preciso de ACM e LED. Me explica"
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]"
+                  />
                 </div>
                 <Button
-                  onClick={() => handleWhatsAppClick("Oi, Michael Cardoso. Sou da [empresa], telefone [telefone]. Preciso de fachada em ACM e sinalização LED.")}
+                  onClick={() => handleWhatsAppClick(`Olá, Michael Cardoso. Me chamo ${formData.name}, da empresa ${formData.company}. Meu email é ${formData.email} e telefone ${formData.phone}. Mensagem: ${formData.message}`)}
                   className="w-full bg-[#003366] hover:bg-[#002244] text-white font-bold text-lg h-12"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
@@ -522,6 +613,19 @@ export default function Home() {
       >
         <MessageCircle className="w-8 h-8" />
       </button>
+      {/* Lightbox Overlay */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4 cursor-pointer"
+          onClick={closeLightbox}
+        >
+          <img
+            src={selectedImage}
+            alt="Full screen project"
+            className="max-w-full max-h-full object-contain rounded-lg"
+          />
+        </div>
+      )}
     </div>
   );
 }
