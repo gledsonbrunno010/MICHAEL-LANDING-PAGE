@@ -34,7 +34,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-xl font-bold text-[#003366]">Michael Cardoso A3 comunicação</h1>
+              <h1 className="text-xl font-bold text-[#003366]">Michael Cardoso | A3 Comunicação</h1>
             </div>
 
             {/* Desktop Navigation */}
@@ -170,14 +170,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Projeto 2 */}
+            {/* Projeto 2 (Antigo Projeto 5) */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img src="/produto-2.png" alt="Supermercados Bellavia" className="w-full h-64 object-cover" />
+              <img src="/produto-5.jpg" alt="Projeto 5" className="w-full h-64 object-cover" />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Supermercados Bellavia</h3>
-                <p className="text-gray-600 mb-4">Fachada em ACM e Letra caixa com iluminação pela face</p>
+                <h3 className="text-2xl font-bold text-[#003366] mb-2">Projeto 5</h3>
+                <p className="text-gray-600 mb-4">Descrição do projeto 5</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Trabalho elaborado com excelência e qualidade</span>
+                  <span className="text-[#00a8ff] font-bold">Detalhe do projeto</span>
                   <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
                 </div>
               </div>
@@ -209,14 +209,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Projeto 5 */}
+            {/* Projeto 5 (Antigo Projeto 2) */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img src="/produto-5.jpg" alt="Projeto 5" className="w-full h-64 object-cover" />
+              <img src="/produto-2.png" alt="Supermercados Bellavia" className="w-full h-64 object-cover" />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Projeto 5</h3>
-                <p className="text-gray-600 mb-4">Descrição do projeto 5</p>
+                <h3 className="text-2xl font-bold text-[#003366] mb-2">Supermercados Bellavia</h3>
+                <p className="text-gray-600 mb-4">Fachada em ACM e Letra caixa com iluminação pela face</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Detalhe do projeto</span>
+                  <span className="text-[#00a8ff] font-bold">Trabalho elaborado com excelência e qualidade</span>
                   <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
                 </div>
               </div>
