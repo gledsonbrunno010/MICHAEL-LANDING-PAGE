@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <!-- Permite zoom (acessibilidade) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO básico -->
+  <title>Meu Site — Título aqui</title>
+  <meta name="description" content="Descrição curta e direta do seu site ou serviço.">
+
+  <!-- Open Graph (quando alguém compartilhar o link) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Meu Site — Título aqui">
+  <meta property="og:description" content="Descrição curta e direta do seu site ou serviço.">
+  <!-- Troque /assets/og-image.png pelo caminho real caso tenha imagem -->
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Ícones / favicon - coloque arquivos reais em /assets -->
+  <link rel="icon" href="/assets/favicon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <!-- Cor da barra em mobile -->
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Preload do CSS principal (melhora render) -->
+  <link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css"></noscript>
+
+  <!-- Pequeno CSS crítico inline para evitar flash branco -->
+  <style>
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;}
+    #root{min-height:100vh;display:flex;flex-direction:column;}
+  </style>
+</head>
+<body>
+  <!-- Mensagem pra quem desabilitou JS -->
+  <noscript>
+    <div style="padding:1rem;background:#fffbeb;border-bottom:1px solid #f2c94c;text-align:center;">
+      Este site funciona melhor com JavaScript habilitado.
+    </div>
+  </noscript>
+
+  <div id="root">
+    <header class="site-header" role="banner">
+      <div class="container">
+        <a href="/" class="logo" aria-label="Voltar para a página inicial">
+          <!-- Troca pelo logo real em /assets/logo.svg ou .png -->
+          <img src="/assets/logo.svg" alt="Logo" width="140" height="40" onerror="this.style.display='none'">
+        </a>
+        <nav class="nav" role="navigation" aria-label="Navegação principal">
+          <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="mainNav">Menu</button>
+          <ul id="mainNav" class="nav-list" hidden>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home" class="container main-content" role="main">
+      <h1 class="headline">Título principal do serviço/produto</h1>
+      <p class="lead">Texto curto que explica em uma linha por que alguém deve ficar aqui.</p>
+
+      <section id="servicos" class="card-grid" aria-labelledby="servicos-title">
+        <h2 id="servicos-title">O que fazemos</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Serviço A</h3>
+            <p>Descrição curta do serviço A.</p>
+          </article>
+          <article class="card">
+            <h3>Serviço B</h3>
+            <p>Descrição curta do serviço B.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contato" class="contact" aria-labelledby="contato-title">
+        <h2 id="contato-title">Fale com a gente</h2>
+        <form id="contactForm" class="form" action="/enviar" method="POST" novalidate>
+          <label>
+            Nome
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            Mensagem
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <div class="form-row">
+            <button type="submit" class="btn">Enviar</button>
+            <button type="button" id="clearBtn" class="btn btn-secondary">Limpar</button>
+          </div>
+          <div id="formStatus" class="form-status" aria-live="polite"></div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <small>&copy; <span id="year"></span> Meu Site. Todos os direitos reservados.</small>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JS puro, seguro e defensivo -->
+  <script src="script.js" defer></script>
+
+  <!--
+    ANALYTICS (opcional e seguro):
+    Se quiser usar analytics, não cole o script direto aqui sem verificar o host.
+    Recomendo carregar via JS condicional, por exemplo no script.js.
+    Exemplo comentado no topo de script.js.
+  -->
+</body>
+</html>
