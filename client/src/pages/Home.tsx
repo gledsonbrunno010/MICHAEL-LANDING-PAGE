@@ -35,6 +35,20 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeLightbox();
+      }
+    };
+
+    if (selectedImage) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage]);
+
   const handleWhatsAppClick = (message: string) => {
     const phoneNumber = "5561981850437";
     const encodedMessage = encodeURIComponent(message);
