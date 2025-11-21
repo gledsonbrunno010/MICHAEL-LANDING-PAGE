@@ -36,7 +36,7 @@ export default function Home() {
   }, []);
 
   const handleWhatsAppClick = (message: string) => {
-    const phoneNumber = "5561992241209";
+    const phoneNumber = "5561981850437";
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
   };
@@ -467,7 +467,7 @@ export default function Home() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="+55 61 99224-1209"
+                    placeholder="+55 61 98185-0437"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#003366]"
                   />
                 </div>
@@ -508,19 +508,19 @@ export default function Home() {
               <div>
                 <h3 className="text-2xl font-bold text-[#003366] mb-6">Contato Direto</h3>
                 <div className="space-y-4">
-                  <a href="https://wa.me/5561992241209" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
+                  <a href="https://wa.me/5561981850437" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
                     <MessageCircle className="w-6 h-6 text-[#00a8ff]" />
                     <div>
                       <p className="font-semibold text-[#003366]">WhatsApp</p>
-                      <p className="text-gray-600">+55 61 99224-1209</p>
+                      <p className="text-gray-600">+55 61 98185-0437</p>
                     </div>
                   </a>
 
-                  <a href="tel:+5561992241209" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
+                  <a href="tel:+5561981850437" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
                     <Phone className="w-6 h-6 text-[#00a8ff]" />
                     <div>
                       <p className="font-semibold text-[#003366]">Telefone</p>
-                      <p className="text-gray-600">+55 61 99224-1209</p>
+                      <p className="text-gray-600">+55 61 98185-0437</p>
                     </div>
                   </a>
 
@@ -599,7 +599,7 @@ export default function Home() {
           </div>
 
           <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
-            <p className="mb-2">+55 61 99224-1209 | Brasília/DF | contato@michaelcardoso.com</p>
+            <p className="mb-2">+55 61 98185-0437 | Brasília/DF | contato@michaelcardoso.com</p>
             <p>© 2025 Michael Cardoso. Todos os direitos reservados.</p>
           </div>
         </div>
