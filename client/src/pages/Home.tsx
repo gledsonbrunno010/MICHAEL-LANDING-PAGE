@@ -87,7 +87,7 @@ export default function Home() {
                 Contato
               </button>
               <Button
-                onClick={() => handleWhatsAppClick("Olá, Michael Cardoso. Vi seu site e quero melhorar minha fachada. Pode me ajudar?")}
+                onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
                 className="bg-[#003366] hover:bg-[#002244] text-white"
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
@@ -98,7 +98,7 @@ export default function Home() {
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <Button
-                onClick={() => handleWhatsAppClick("Olá, Michael Cardoso. Vi seu site e quero melhorar minha fachada. Pode me ajudar?")}
+                onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
                 className="bg-[#003366] hover:bg-[#002244] text-white"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -156,7 +156,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-3 md:gap-3">
                 <Button
-                  onClick={() => handleWhatsAppClick("Olá, Michael Cardoso. Vi seu site e quero melhorar minha fachada. Pode me ajudar?")}
+                  onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
                   className="bg-white text-[#003366] hover:bg-gray-100 font-bold text-lg h-12"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
@@ -580,7 +580,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Não deixe seu negócio invisível.</h2>
           <p className="text-lg mb-8 opacity-90">Fale com Michael Cardoso hoje.</p>
           <Button
-            onClick={() => handleWhatsAppClick("Olá, Michael Cardoso. Vi seu site e quero melhorar minha fachada. Pode me ajudar?")}
+            onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
             className="bg-white text-[#003366] hover:bg-gray-100 font-bold text-lg h-12"
           >
             <MessageCircle className="w-5 h-5 mr-2" />
@@ -621,7 +621,7 @@ export default function Home() {
 
       {/* Floating WhatsApp Button */}
       <button
-        onClick={() => handleWhatsAppClick("Olá, Michael Cardoso. Vi seu site e quero melhorar minha fachada. Pode me ajudar?")}
+        onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
         className="fixed bottom-6 right-6 bg-[#003366] hover:bg-[#002244] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 z-40"
         title="Abrir WhatsApp"
       >
