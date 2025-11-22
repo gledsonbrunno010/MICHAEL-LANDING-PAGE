@@ -312,7 +312,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-[#003366] mb-2">Identificação de Condomínios</h3>
                 <p className="text-gray-600 mb-4">Corte em ACM para melhor identificação da sua casa</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Elegância para o visual da sua casa</span>
+                  <span className="text-[#00a8ff] font-bold">Elegância para o visual do seu condomínio</span>
                   <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
                 </div>
               </div>
