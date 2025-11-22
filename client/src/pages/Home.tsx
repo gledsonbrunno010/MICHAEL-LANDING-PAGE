@@ -309,7 +309,7 @@ export default function Home() {
                 onClick={() => handleImageClick("/produto-7.jpg")}
               />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Identificação de Casas</h3>
+                <h3 className="text-2xl font-bold text-[#003366] mb-2">Identificação de Condomínios</h3>
                 <p className="text-gray-600 mb-4">Corte em ACM para melhor identificação da sua casa</p>
                 <div className="flex justify-between items-center">
                   <span className="text-[#00a8ff] font-bold">Elegância para o visual da sua casa</span>
