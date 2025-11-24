@@ -134,9 +134,9 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center md:pt-8">
             <div className="text-white md:text-left text-center">
-              <h2 className="text-4xl md:text-4xl font-bold mb-4 md:mb-5 leading-tight">Se o negócio está invisível, não vende.</h2>
+              <h2 className="text-4xl md:text-4xl font-bold mb-4 md:mb-5 leading-tight">Fachadas em ACM e Letreiros em Geral para Empresas.</h2>
               <p className="text-base md:text-lg mb-6 md:mb-5 opacity-90">
-                Empresas locais perdem 70% dos clientes por falta de identidade visual. Michael Cardoso transforma presença com estratégias comprovadas – visibilidade imediata, leads reais.
+                Criamos a fachada da sua empresa por completo, dando a ela uma nova identidade visual para seu mercado de atuação.
               </p>
 
               <div className="space-y-2 md:space-y-2 mb-6 md:mb-4">
@@ -192,6 +192,23 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
+            {/* Projeto 8 (Novo) */}
+            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
+              <img
+                src="/produto-8.jpg"
+                alt="Placa em ACM para a Embaixada da União Europeira no Brasil"
+                className="w-full h-64 object-cover cursor-pointer"
+                onClick={() => handleImageClick("/produto-8.jpg")}
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-[#003366] mb-2">Placa em ACM para a Embaixada da União Europeira no Brasil</h3>
+                <p className="text-gray-600 mb-4">Trabalho realizado com excelencia em parceria com a A3 ComunicaClau</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-[#00a8ff] font-bold">Identidade visual única</span>
+                  <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
+                </div>
+              </div>
+            </div>
             {/* Projeto 1 */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
               <img
