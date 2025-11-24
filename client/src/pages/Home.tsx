@@ -135,6 +135,12 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center md:pt-8">
             <div className="text-white md:text-left text-center">
               <h2 className="text-4xl md:text-4xl font-bold mb-4 md:mb-5 leading-tight">Fachadas em ACM e Letreiros em Geral para Empresas.</h2>
+
+              {/* Mobile Image */}
+              <div className="md:hidden mb-6">
+                <img src="/michael-cardoso.png" alt="Michael Cardoso" className="rounded-lg shadow-xl w-full" />
+              </div>
+
               <p className="text-base md:text-lg mb-6 md:mb-5 opacity-90">
                 Criamos a fachada da sua empresa por completo, dando a ela uma nova identidade visual para seu mercado de atuação.
               </p>
