@@ -109,7 +109,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden bg-gradient-to-r from-[#003366] to-[#004488]">
+      <section id="hero" className="pt-24 pb-16 md:pt-24 md:pb-24 relative overflow-hidden bg-gradient-to-r from-[#003366] to-[#004488]">
         {/* Mobile Background */}
         <div
           className="absolute inset-0 opacity-30 bg-cover bg-center md:hidden"
@@ -132,7 +132,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#003366]/95 to-[#004488]/85 hidden md:block" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center md:pt-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-white md:text-left text-center">
               <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-5 leading-tight">Fachadas em ACM e Letreiros em Geral para Empresas.</h2>
 
