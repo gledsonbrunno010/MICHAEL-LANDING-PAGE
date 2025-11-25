@@ -134,7 +134,7 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center md:pt-8">
             <div className="text-white md:text-left text-center">
-              <h2 className="text-4xl md:text-4xl font-bold mb-4 md:mb-5 leading-tight">Fachadas em ACM e Letreiros em Geral para Empresas.</h2>
+              <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-5 leading-tight">Fachadas em ACM e Letreiros em Geral para Empresas.</h2>
 
               {/* Mobile Image */}
               <div className="md:hidden mb-6">
