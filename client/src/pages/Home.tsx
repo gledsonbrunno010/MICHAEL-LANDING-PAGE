@@ -2,6 +2,74 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Mail, MapPin, Zap, TrendingUp, Shield, CheckCircle, MessageSquare, BarChart3 } from "lucide-react";
 import { useEffect, useState } from "react";
 
+
+const PROJECTS = [
+  {
+    id: 8,
+    image: "/produto-8.jpg",
+    title: "Placa em ACM para a Embaixada da União Europeira no Brasil",
+    desc: "Trabalho realizado com excelencia em parceria com a A3 ComunicaClau",
+    highlight: "Identidade visual única",
+    sub: "Michael Cardoso – A3 Comunica CLAU"
+  },
+  {
+    id: 1,
+    image: "/produto-1.png",
+    title: "Fachada em ACM Supergás Brás",
+    desc: "Fachada em ACM e Letra Caixa",
+    highlight: "Fachada entregue em tempo record",
+    sub: "Michael Cardoso – A3 Comunica CLAU"
+  },
+  {
+    id: 5,
+    image: "/produto-5.jpg",
+    title: "Ocidental Shopping",
+    desc: "Toten para orientação dos clientes",
+    highlight: "Projeto elaborado por A3 Comunicação",
+    sub: "Michael Cardoso – A3 Comunica CLAU"
+  },
+  {
+    id: 3,
+    image: "/produto-3.png",
+    title: "V&C Studios",
+    desc: "Sinalização interna Completa",
+    highlight: "100% de aprovação dos usuários",
+    sub: "Michael Cardoso – A3 Comunica CLAU"
+  },
+  {
+    id: 4,
+    image: "/produto-4.jpg",
+    title: "Sinalização Interna Shopping",
+    desc: "Visibilidade única para cada ambiente",
+    highlight: "Cada espaço sinalizado e aprovado pelos Bombeiros",
+    sub: "Michael Cardoso – A3 Comunica CLAU"
+  },
+  {
+    id: 2,
+    image: "/produto-2.png",
+    title: "UNIEURO CENTRO UNIVERSITÁRIO",
+    desc: "Simbolo da Intituição realizado por nós",
+    highlight: "Trabalho realizado com excelência e qualidade",
+    sub: "Michael Cardoso – A3 Comunica CLAU"
+  },
+  {
+    id: 6,
+    image: "/produto-6.jpg",
+    title: "EUROBIKE",
+    desc: "Letra Caixa para identificação de parques ou cidades",
+    highlight: "Identidade Visual bem definida",
+    sub: "Michael Cardoso – A3 Comunica CLAU"
+  },
+  {
+    id: 7,
+    image: "/produto-7.jpg",
+    title: "Identificação de Condomínios",
+    desc: "Corte em ACM para melhor identificação da sua casa",
+    highlight: "Elegância para o visual do seu condomínio",
+    sub: "Michael Cardoso – A3 Comunica CLAU"
+  }
+];
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -134,7 +202,7 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-white md:text-left text-center">
-              <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-5 leading-tight">Fachadas em ACM e Letreiros em Geral para Empresas.</h2>
+              <h2 className="text-4xl md:text-7xl font-bold mb-4 md:mb-5 leading-tight tracking-wide">Fachadas em ACM e Letreiros em Geral para Empresas.</h2>
 
               {/* Mobile Image */}
               <div className="md:hidden mb-6">
@@ -190,155 +258,60 @@ export default function Home() {
       </section>
 
       {/* Projetos Section */}
-      <section id="projects" className="py-16 md:py-24 bg-[#f8f9fa]">
+      <section id="projects" className="py-16 md:py-24 bg-[#f8f9fa] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-4">Meus Projetos</h2>
             <p className="text-xl text-gray-600">Fachadas, placas e sinalizações que transformaram negócios reais em Brasília.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Projeto 8 (Novo) */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img
-                src="/produto-8.jpg"
-                alt="Placa em ACM para a Embaixada da União Europeira no Brasil"
-                className="w-full h-64 object-cover cursor-pointer"
-                onClick={() => handleImageClick("/produto-8.jpg")}
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Placa em ACM para a Embaixada da União Europeira no Brasil</h3>
-                <p className="text-gray-600 mb-4">Trabalho realizado com excelencia em parceria com a A3 ComunicaClau</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Identidade visual única</span>
-                  <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
+          {/* Mobile View: Grid */}
+          <div className="grid md:hidden gap-8">
+            {PROJECTS.map((project) => (
+              <div key={project.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-64 object-cover cursor-pointer"
+                  onClick={() => handleImageClick(project.image)}
+                />
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-[#003366] mb-2">{project.title}</h3>
+                  <p className="text-gray-600 mb-4">{project.desc}</p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#00a8ff] font-bold">{project.highlight}</span>
+                    <span className="text-sm text-gray-500">{project.sub}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* Projeto 1 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img
-                src="/produto-1.png"
-                alt="Fachada em ACM Supergás Brás"
-                className="w-full h-64 object-cover cursor-pointer"
-                onClick={() => handleImageClick("/produto-1.png")}
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Fachada em ACM Supergás Brás</h3>
-                <p className="text-gray-600 mb-4">Fachada em ACM e Letra Caixa</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Fachada entregue em tempo record</span>
-                  <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
-                </div>
-              </div>
-            </div>
+            ))}
+          </div>
 
-            {/* Projeto 2 (Antigo Projeto 5) */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img
-                src="/produto-5.jpg"
-                alt="Projeto 5"
-                className="w-full h-64 object-cover cursor-pointer"
-                onClick={() => handleImageClick("/produto-5.jpg")}
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Ocidental Shopping</h3>
-                <p className="text-gray-600 mb-4">Toten para orientação dos clientes</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Projeto elaborado por A3 Comunicação</span>
-                  <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
+          {/* Desktop View: Infinite Slider */}
+          <div className="hidden md:flex overflow-hidden">
+            <div className="flex gap-8 animate-marquee">
+              {/* Render double the items for seamless loop */}
+              {[...PROJECTS, ...PROJECTS].map((project, index) => (
+                <div
+                  key={`${project.id}-${index}`}
+                  className="min-w-[500px] bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-64 object-cover cursor-pointer"
+                    onClick={() => handleImageClick(project.image)}
+                  />
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold text-[#003366] mb-2">{project.title}</h3>
+                    <p className="text-gray-600 mb-4">{project.desc}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-[#00a8ff] font-bold">{project.highlight}</span>
+                      <span className="text-sm text-gray-500">{project.sub}</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Projeto 3 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img
-                src="/produto-3.png"
-                alt="V&C Studios"
-                className="w-full h-64 object-cover cursor-pointer"
-                onClick={() => handleImageClick("/produto-3.png")}
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">V&C Studios</h3>
-                <p className="text-gray-600 mb-4">Sinalização interna Completa</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">100% de aprovação dos usuários</span>
-                  <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Projeto 4 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img
-                src="/produto-4.jpg"
-                alt="Sinalização Interna Shopping"
-                className="w-full h-64 object-cover cursor-pointer"
-                onClick={() => handleImageClick("/produto-4.jpg")}
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Sinalização Interna Shopping</h3>
-                <p className="text-gray-600 mb-4">Visibilidade única para cada ambiente</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Cada espaço sinalizado e aprovado pelos Bombeiros</span>
-                  <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Projeto 5 (Antigo Projeto 2) */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img
-                src="/produto-2.png"
-                alt="Supermercados Bellavia"
-                className="w-full h-64 object-cover cursor-pointer"
-                onClick={() => handleImageClick("/produto-2.png")}
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">UNIEURO CENTRO UNIVERSITÁRIO</h3>
-                <p className="text-gray-600 mb-4">Simbolo da Intituição realizado por nós</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Trabalho realizado com excelência e qualidade</span>
-                  <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Projeto 6 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img
-                src="/produto-6.jpg"
-                alt="Projeto 6"
-                className="w-full h-64 object-cover cursor-pointer"
-                onClick={() => handleImageClick("/produto-6.jpg")}
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">EUROBIKE</h3>
-                <p className="text-gray-600 mb-4">Letra Caixa para identificação de parques ou cidades</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Identidade Visual bem definida</span>
-                  <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Projeto 7 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-              <img
-                src="/produto-7.jpg"
-                alt="Projeto 7"
-                className="w-full h-64 object-cover cursor-pointer"
-                onClick={() => handleImageClick("/produto-7.jpg")}
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#003366] mb-2">Identificação de Condomínios</h3>
-                <p className="text-gray-600 mb-4">Corte em ACM para melhor identificação da sua casa</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#00a8ff] font-bold">Elegância para o visual do seu condomínio</span>
-                  <span className="text-sm text-gray-500">Michael Cardoso – A3 Comunica CLAU</span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
