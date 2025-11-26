@@ -427,9 +427,11 @@ export default function Home() {
                   Hoje, em parceria com a A3 ComunicaClau, ele amplia seu propósito: entregar mais do que comunicação visual — oferecer experiências memoráveis.
                   Cada cliente é visto como uma história única, e cada marca, uma oportunidade de conectar pessoas por meio do design.
                 </p>
-                <p>
-                  Seja para renovar sua identidade visual, criar uma nova marca ou reposicionar o seu negócio, Michael e a equipe da A3 ComunicaClau estão prontos para dar visibilidade à sua ideia e transformar sua presença no mercado.
-                </p>
+                <div className="bg-gradient-to-r from-[#003366] to-[#005580] p-6 rounded-lg shadow-md mt-6">
+                  <p className="text-white font-medium text-lg">
+                    Seja para renovar sua identidade visual, criar uma nova marca ou reposicionar o seu negócio, Michael e a equipe da A3 ComunicaClau estão prontos para dar visibilidade à sua ideia e transformar sua presença no mercado.
+                  </p>
+                </div>
               </div>
             </div>
 
