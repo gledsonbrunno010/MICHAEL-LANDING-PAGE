@@ -618,7 +618,7 @@ export default function Home() {
       {/* Floating WhatsApp Button */}
       <button
         onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
-        className="fixed bottom-6 right-6 bg-[#003366] hover:bg-[#002244] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 z-40"
+        className="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 z-40"
         title="Abrir WhatsApp"
       >
         <MessageCircle className="w-8 h-8" />
