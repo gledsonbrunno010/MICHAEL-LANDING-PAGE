@@ -413,13 +413,23 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Especialista em comunicação visual com <strong>+7 anos de experiência</strong> em Brasília. Desde 2018, transforma negócios locais (arquitetura, varejo, serviços) em marcas visíveis. Parceiro da <strong>A3 Comunica CLAU</strong>.
-              </p>
-
-              <div className="bg-[#b3e5fc] border-l-4 border-[#0288d1] p-6 rounded mb-8">
-                <p className="font-bold text-[#003366] mb-2">Missão:</p>
-                <p className="text-gray-800">Ajudar empresas locais a aumentar volume de clientes com estratégias visuais de alto impacto. Invisibilidade vira presença.</p>
+              <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+                <p>
+                  Com mais de 7 anos de experiência no mercado de comunicação visual em Brasília, Michael construiu uma trajetória marcada pela criatividade, técnica e compromisso com resultados que fortalecem marcas.
+                </p>
+                <p>
+                  Desde 2018, atua transformando negócios locais — nos setores de arquitetura, varejo e serviços — em marcas visíveis e impactantes, que se destacam pela identidade e consistência.
+                </p>
+                <p>
+                  Amplamente reconhecido por sua dedicação e profissionalismo, Michael se tornou referência no cenário brasiliense, sempre em busca de inovação e excelência em cada projeto.
+                </p>
+                <p>
+                  Hoje, em parceria com a A3 ComunicaClau, ele amplia seu propósito: entregar mais do que comunicação visual — oferecer experiências memoráveis.
+                  Cada cliente é visto como uma história única, e cada marca, uma oportunidade de conectar pessoas por meio do design.
+                </p>
+                <p>
+                  Seja para renovar sua identidade visual, criar uma nova marca ou reposicionar o seu negócio, Michael e a equipe da A3 ComunicaClau estão prontos para dar visibilidade à sua ideia e transformar sua presença no mercado.
+                </p>
               </div>
             </div>
 
