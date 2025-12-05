@@ -193,7 +193,11 @@ export default function Home() {
               </button>
               <Button
                 id="btn-whatsapp-navbar"
-                onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
+                onClick={() => {
+                  // @ts-ignore
+                  if (window.fbq) window.fbq('track', 'Lead');
+                  handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*");
+                }}
                 className="bg-[#25D366] hover:bg-[#128C7E] text-white"
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
@@ -248,7 +252,11 @@ export default function Home() {
                   <div className="mt-auto">
                     <Button
                       id="btn-whatsapp-mobile"
-                      onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
+                      onClick={() => {
+                        // @ts-ignore
+                        if (window.fbq) window.fbq('track', 'Lead');
+                        handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*");
+                      }}
                       className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white h-14 text-lg"
                     >
                       <MessageCircle className="w-6 h-6 mr-2" />
@@ -317,7 +325,11 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-3 md:gap-3">
                 <Button
                   id="btn-whatsapp-hero"
-                  onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
+                  onClick={() => {
+                    // @ts-ignore
+                    if (window.fbq) window.fbq('track', 'Lead');
+                    handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*");
+                  }}
                   className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg h-12 animate-pulse-gentle"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
@@ -634,7 +646,17 @@ export default function Home() {
               <div>
                 <h3 className="text-2xl font-bold text-[#003366] mb-6">Contato Direto</h3>
                 <div className="space-y-4">
-                  <a id="link-whatsapp-footer" href="https://wa.me/5561981850437" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
+                  <a
+                    id="link-whatsapp-footer"
+                    href="https://wa.me/5561981850437"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      // @ts-ignore
+                      if (window.fbq) window.fbq('track', 'Lead');
+                    }}
+                    className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition"
+                  >
                     <MessageCircle className="w-6 h-6 text-[#00a8ff]" />
                     <div>
                       <p className="font-semibold text-[#003366]">WhatsApp</p>
@@ -642,7 +664,15 @@ export default function Home() {
                     </div>
                   </a>
 
-                  <a id="link-phone-footer" href="tel:+5561981850437" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
+                  <a
+                    id="link-phone-footer"
+                    href="tel:+5561981850437"
+                    onClick={() => {
+                      // @ts-ignore
+                      if (window.fbq) window.fbq('track', 'Lead');
+                    }}
+                    className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition"
+                  >
                     <Phone className="w-6 h-6 text-[#00a8ff]" />
                     <div>
                       <p className="font-semibold text-[#003366]">Telefone</p>
@@ -650,7 +680,15 @@ export default function Home() {
                     </div>
                   </a>
 
-                  <a id="link-email-footer" href="mailto:contato@michaelcardoso.com" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
+                  <a
+                    id="link-email-footer"
+                    href="mailto:contato@michaelcardoso.com"
+                    onClick={() => {
+                      // @ts-ignore
+                      if (window.fbq) window.fbq('track', 'Lead');
+                    }}
+                    className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition"
+                  >
                     <Mail className="w-6 h-6 text-[#00a8ff]" />
                     <div>
                       <p className="font-semibold text-[#003366]">E-mail</p>
@@ -692,8 +730,13 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Não deixe seu negócio invisível.</h2>
           <p className="text-lg mb-8 opacity-90">Fale com Michael Cardoso hoje.</p>
           <Button
-            onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
-            className="bg-white text-[#003366] hover:bg-gray-100 font-bold text-lg h-12"
+            id="btn-whatsapp-final"
+            onClick={() => {
+              // @ts-ignore
+              if (window.fbq) window.fbq('track', 'Lead');
+              handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*");
+            }}
+            className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg h-12"
           >
             <MessageCircle className="w-5 h-5 mr-2" />
             Iniciar Conversa no WhatsApp
@@ -733,8 +776,12 @@ export default function Home() {
 
       {/* Floating WhatsApp Button */}
       <button
-        id="btn-whatsapp-float"
-        onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
+        id="whatsapp-lead"
+        onClick={() => {
+          // @ts-ignore
+          if (window.fbq) window.fbq('track', 'Lead');
+          handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*");
+        }}
         className="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 z-40 animate-pulse-gentle"
         title="Abrir WhatsApp"
       >
