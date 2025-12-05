@@ -149,6 +149,11 @@ export default function Home() {
   }, [selectedImage]);
 
   const handleWhatsAppClick = (message: string) => {
+    // @ts-ignore
+    if (window.fbq) {
+      // @ts-ignore
+      window.fbq('track', 'Lead');
+    }
     const phoneNumber = "5561981850437";
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
@@ -187,6 +192,7 @@ export default function Home() {
                 Contato
               </button>
               <Button
+                id="btn-whatsapp-navbar"
                 onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
                 className="bg-[#003366] hover:bg-[#002244] text-white"
               >
@@ -241,6 +247,7 @@ export default function Home() {
 
                   <div className="mt-auto">
                     <Button
+                      id="btn-whatsapp-mobile"
                       onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
                       className="w-full bg-[#003366] hover:bg-[#002244] text-white h-14 text-lg"
                     >
@@ -309,6 +316,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-3 md:gap-3">
                 <Button
+                  id="btn-whatsapp-hero"
                   onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
                   className="bg-white text-[#003366] hover:bg-gray-100 font-bold text-lg h-12"
                 >
@@ -316,6 +324,7 @@ export default function Home() {
                   Fale comigo no WhatsApp
                 </Button>
                 <Button
+                  id="btn-consultoria-hero"
                   onClick={() => scrollToSection("contact")}
                   className="bg-[#00a8ff] hover:bg-[#0088cc] text-white font-bold text-lg h-12"
                 >
@@ -603,7 +612,15 @@ export default function Home() {
                   />
                 </div>
                 <Button
-                  onClick={() => handleWhatsAppClick(`Olá, Michael Cardoso. Me chamo ${formData.name}, da empresa ${formData.company}. Meu email é ${formData.email} e telefone ${formData.phone}. Mensagem: ${formData.message}`)}
+                  id="btn-submit-form"
+                  onClick={() => {
+                    // @ts-ignore
+                    if (window.fbq) {
+                      // @ts-ignore
+                      window.fbq('track', 'Lead');
+                    }
+                    handleWhatsAppClick(`Olá, Michael Cardoso. Me chamo ${formData.name}, da empresa ${formData.company}. Meu email é ${formData.email} e telefone ${formData.phone}. Mensagem: ${formData.message}`)
+                  }}
                   className="w-full bg-[#003366] hover:bg-[#002244] text-white font-bold text-lg h-12"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
@@ -617,7 +634,7 @@ export default function Home() {
               <div>
                 <h3 className="text-2xl font-bold text-[#003366] mb-6">Contato Direto</h3>
                 <div className="space-y-4">
-                  <a href="https://wa.me/5561981850437" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
+                  <a id="link-whatsapp-footer" href="https://wa.me/5561981850437" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
                     <MessageCircle className="w-6 h-6 text-[#00a8ff]" />
                     <div>
                       <p className="font-semibold text-[#003366]">WhatsApp</p>
@@ -625,7 +642,7 @@ export default function Home() {
                     </div>
                   </a>
 
-                  <a href="tel:+5561981850437" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
+                  <a id="link-phone-footer" href="tel:+5561981850437" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
                     <Phone className="w-6 h-6 text-[#00a8ff]" />
                     <div>
                       <p className="font-semibold text-[#003366]">Telefone</p>
@@ -633,7 +650,7 @@ export default function Home() {
                     </div>
                   </a>
 
-                  <a href="mailto:contato@michaelcardoso.com" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
+                  <a id="link-email-footer" href="mailto:contato@michaelcardoso.com" className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg hover:bg-[#e8eaed] transition">
                     <Mail className="w-6 h-6 text-[#00a8ff]" />
                     <div>
                       <p className="font-semibold text-[#003366]">E-mail</p>
@@ -716,6 +733,7 @@ export default function Home() {
 
       {/* Floating WhatsApp Button */}
       <button
+        id="btn-whatsapp-float"
         onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
         className="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 z-40"
         title="Abrir WhatsApp"
