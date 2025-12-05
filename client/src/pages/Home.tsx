@@ -194,7 +194,7 @@ export default function Home() {
               <Button
                 id="btn-whatsapp-navbar"
                 onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
-                className="bg-[#003366] hover:bg-[#002244] text-white"
+                className="bg-[#25D366] hover:bg-[#128C7E] text-white"
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp
@@ -249,7 +249,7 @@ export default function Home() {
                     <Button
                       id="btn-whatsapp-mobile"
                       onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
-                      className="w-full bg-[#003366] hover:bg-[#002244] text-white h-14 text-lg"
+                      className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white h-14 text-lg"
                     >
                       <MessageCircle className="w-6 h-6 mr-2" />
                       Fale no WhatsApp
@@ -318,7 +318,7 @@ export default function Home() {
                 <Button
                   id="btn-whatsapp-hero"
                   onClick={() => handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*")}
-                  className="bg-white text-[#003366] hover:bg-gray-100 font-bold text-lg h-12 animate-pulse-gentle"
+                  className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg h-12 animate-pulse-gentle"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Fale comigo no WhatsApp
