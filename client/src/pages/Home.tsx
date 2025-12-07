@@ -86,9 +86,33 @@ export default function Home() {
   const baseX = useMotionValue(0);
   const isDragging = useRef(false);
 
+  /* Responsive Card Width Logic */
+  const [cardWidth, setCardWidth] = useState(500);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Tailwind md breakpoint is 768px.
+      // < 768px -> Mobile (300px cards)
+      // >= 768px -> Desktop (500px cards)
+      if (typeof window !== 'undefined') {
+        if (window.innerWidth < 768) {
+          setCardWidth(300);
+        } else {
+          setCardWidth(500);
+        }
+      }
+    };
+
+    // Initial Set
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Calculate total width of one set of projects
-  // 8 projects * (500px width + 32px gap) = 4256px
-  const contentWidth = PROJECTS.length * (500 + 32);
+  // PROJECTS.length * (cardWidth + 32px gap)
+  const contentWidth = PROJECTS.length * (cardWidth + 32);
 
   useAnimationFrame((t, delta) => {
     if (!isDragging.current) {
@@ -365,30 +389,8 @@ export default function Home() {
             <p className="text-xl text-gray-600">Fachadas, placas e sinalizações que transformaram negócios reais em Brasília.</p>
           </div>
 
-          {/* Mobile View: Grid */}
-          <div className="grid md:hidden gap-8">
-            {PROJECTS.map((project) => (
-              <div key={project.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-8px]">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover cursor-pointer"
-                  onClick={() => handleImageClick(project.image)}
-                />
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-[#003366] mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-4">{project.desc}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-[#00a8ff] font-bold">{project.highlight}</span>
-                    <span className="text-sm text-gray-500">{project.sub}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop View: Infinite Slider with Drag */}
-          <div className="hidden md:flex overflow-hidden cursor-grab active:cursor-grabbing">
+          {/* Infinite Slider with Drag (Responsive) */}
+          <div className="flex overflow-hidden cursor-grab active:cursor-grabbing">
             <motion.div
               className="flex gap-8 will-change-transform"
               style={{ x: baseX }}
@@ -401,7 +403,8 @@ export default function Home() {
               {[...PROJECTS, ...PROJECTS, ...PROJECTS].map((project, index) => (
                 <div
                   key={`${project.id}-${index}`}
-                  className="min-w-[500px] bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 select-none"
+                  className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 select-none"
+                  style={{ minWidth: cardWidth }}
                 >
                   <img
                     src={project.image}
