@@ -214,11 +214,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navbar Fixa */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md" : "bg-white"}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-white"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-xl font-bold text-[#003366]">Michael Cardoso | A3 Comunicação</h1>
+              <img src="/logo-new.png" alt="Michael Cardoso | A3 Comunicação" className="h-12 w-auto object-contain" />
             </div>
 
             {/* Desktop Navigation */}
@@ -773,7 +773,9 @@ export default function Home() {
       <footer className="bg-[#111] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-2">Michael Cardoso</h3>
+            <div className="flex justify-center mb-4">
+              <img src="/logo-new.png" alt="Michael Cardoso" className="h-16 w-auto object-contain brightness-0 invert" />
+            </div>
             <p className="text-gray-400">Comunicação Visual Estratégica para Negócios Locais</p>
           </div>
 

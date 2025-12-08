@@ -4,6 +4,7 @@
   "description": "Landing page estática de Michael Cardoso - Comunicação Visual Estratégica",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
