@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Mail, MapPin, Zap, TrendingUp, Shield, CheckCircle, MessageSquare, BarChart3, Menu, X } from "lucide-react";
+import { MessageCircle, Phone, Mail, MapPin, Zap, TrendingUp, Shield, CheckCircle, MessageSquare, BarChart3, Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { motion, useAnimationFrame, useMotionValue, useTransform, wrap, AnimatePresence } from "framer-motion";
 
@@ -80,7 +80,27 @@ export default function Home() {
     phone: "",
     company: "",
     message: ""
+
   });
+
+  // Hero Carousel Logic
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % PROJECTS.length);
+    }, 3000); // 3 seconds autoplay
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextHeroSlide = () => {
+    setCurrentHeroIndex((prev) => (prev + 1) % PROJECTS.length);
+  };
+
+  const prevHeroSlide = () => {
+    setCurrentHeroIndex((prev) => (prev - 1 + PROJECTS.length) % PROJECTS.length);
+  };
 
   // Slider Logic
   const baseX = useMotionValue(0);
@@ -295,12 +315,12 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="pt-24 pb-16 md:pt-24 md:pb-24 relative overflow-hidden bg-gradient-to-r from-[#003366] to-[#004488]">
+      <section id="hero" className="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden bg-gradient-to-r from-[#003366] to-[#004488]">
         {/* Mobile Background */}
         <div
           className="absolute inset-0 opacity-30 bg-cover bg-center md:hidden"
           style={{
-            backgroundImage: "url('/michael-cardoso.png')",
+            backgroundImage: "url('/michael-cardoso.png')", // Mantendo o background, mas a imagem do Michael saiu do conteudo principal
             backgroundPosition: "center",
           }}
         />
@@ -312,71 +332,73 @@ export default function Home() {
             backgroundAttachment: "fixed",
           }}
         />
-        {/* Mobile Overlay - mais claro */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003366]/50 to-[#004488]/50 md:hidden" />
-        {/* Desktop Overlay - mais escuro */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003366]/95 to-[#004488]/85 hidden md:block" />
+        {/* Mobile Overlay - mais escuro */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#003366]/90 to-[#004488]/90 md:hidden" />
+        {/* Desktop Overlay - mais escuro - Opacidade 99 */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#003366]/99 to-[#004488]/99 hidden md:block" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-white md:text-left text-center">
-              <h2 className="text-4xl md:text-7xl font-bold mb-4 md:mb-5 leading-tight tracking-wide">Fachadas em ACM e Letreiros em Geral para Empresas.</h2>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+          <h1 className="font-['Poppins'] font-bold text-[32px] md:text-[48px] text-[#FFFFFF] mb-4 uppercase">
+            Comunicação visual imponente
+          </h1>
 
-              {/* Mobile Image */}
-              <div className="md:hidden mb-6">
-                <img src="/michael-cardoso.png" alt="Michael Cardoso" className="rounded-lg shadow-xl w-full" />
-              </div>
+          <p className="font-['Poppins'] font-semibold text-[18px] md:text-[22px] text-[#D3D3D3] mb-8 max-w-2xl">
+            Fachadas ACM, letreiros, cortes em geral para empresas em Brasília. Atendimento personalizado.
+          </p>
 
-              <p className="text-base md:text-lg mb-6 md:mb-5 opacity-90">
-                Criamos a fachada da sua empresa por completo, dando a ela uma nova identidade visual para seu mercado de atuação.
-              </p>
+          <Button
+            id="btn-orcamento-hero"
+            onClick={() => {
+              // @ts-ignore
+              if (window.fbq) window.fbq('track', 'Lead');
+              handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*");
+            }}
+            className="bg-[#25D366] hover:bg-[#128C7E] text-white font-['Poppins'] font-medium text-[16px] md:text-[18px] h-12 w-fit px-8 flex items-center justify-center gap-2 animate-pulse mb-12"
+            style={{ animationDuration: '2s' }}
+          >
+            ORÇAMENTO NO WHATSAPP
+            <MessageCircle className="w-[22px] h-[22px]" />
+          </Button>
 
-              <div className="space-y-2 md:space-y-2 mb-6 md:mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#00a8ff] flex items-center justify-center text-white font-bold text-sm">✓</div>
-                  <span className="text-base md:text-base">+7 anos transformando negócios em Brasília</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#00a8ff] flex items-center justify-center text-white font-bold text-sm">✓</div>
-                  <span className="text-base md:text-base">Especialista em comunicação visual para arquitetura e varejo</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#00a8ff] flex items-center justify-center text-white font-bold text-sm">✓</div>
-                  <span className="text-base md:text-base">Aumento médio de 150% em leads B2B</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-3">
-                <Button
-                  id="btn-whatsapp-hero"
-                  onClick={() => {
-                    // @ts-ignore
-                    if (window.fbq) window.fbq('track', 'Lead');
-                    handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*");
-                  }}
-                  className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg h-12 animate-pulse-gentle"
+          {/* Hero Carousel */}
+          <div className="relative w-full max-w-4xl mx-auto">
+            {/* Carousel Content */}
+            <div className="overflow-hidden rounded-lg shadow-2xl relative h-[250px] md:h-[400px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentHeroIndex}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
                 >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Fale comigo no WhatsApp
-                </Button>
-                <Button
-                  id="btn-consultoria-hero"
-                  onClick={() => scrollToSection("contact")}
-                  className="bg-[#00a8ff] hover:bg-[#0088cc] text-white font-bold text-lg h-12"
-                >
-                  Solicitar Consultoria Gratuita
-                </Button>
-              </div>
+                  <img
+                    src={PROJECTS[currentHeroIndex].image}
+                    alt={PROJECTS[currentHeroIndex].title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 md:p-6 text-left">
+                    <h3 className="text-white text-lg md:text-2xl font-bold">{PROJECTS[currentHeroIndex].title}</h3>
+                    <p className="text-gray-200 text-sm md:text-base">{PROJECTS[currentHeroIndex].desc}</p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
 
-            <div className="hidden md:block">
-              <div className="relative">
-                <img src="/michael-cardoso.png" alt="Michael Cardoso" className="rounded-lg shadow-2xl w-full" />
-                <div className="absolute bottom-4 left-4 right-4 bg-[#003366] text-white p-4 rounded-lg text-center font-semibold">
-                  Desde 2018 – Comunicação Visual Estratégica
-                </div>
-              </div>
-            </div>
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevHeroSlide}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full backdrop-blur-sm transition-all"
+            >
+              <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+            </button>
+            <button
+              onClick={nextHeroSlide}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full backdrop-blur-sm transition-all"
+            >
+              <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+            </button>
           </div>
         </div>
       </section>
