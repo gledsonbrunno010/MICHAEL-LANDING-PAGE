@@ -218,7 +218,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <img src="/logo-transparent.png" alt="Michael Cardoso | A3 Comunicação" className="h-12 w-auto object-contain" />
+              <img src="/logo-transparent-v2.png" alt="Michael Cardoso | A3 Comunicação" className="h-20 w-auto object-contain" />
             </div>
 
             {/* Desktop Navigation */}
@@ -774,7 +774,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <img src="/logo-transparent.png" alt="Michael Cardoso" className="h-20 w-auto object-contain" />
+              <img src="/logo-transparent-v2.png" alt="Michael Cardoso" className="h-40 w-auto object-contain" />
             </div>
             <p className="text-gray-400">Comunicação Visual Estratégica para Negócios Locais</p>
           </div>
