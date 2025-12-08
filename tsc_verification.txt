@@ -1,0 +1,4 @@
+client/src/components/Map.tsx(144,18): error TS2345: Argument of type 'Map | null' is not assignable to parameter of type 'Map'.
+  Type 'null' is not assignable to type 'Map'.
+client/src/components/ui/chart.tsx(107,3): error TS2339: Property 'payload' does not exist on type 'Omit<Props<ValueType, NameType>, PropertiesReadFromContext> & { active?: boolean | undefined; allowEscapeViewBox?: AllowInDimension | undefined; ... 17 more ...; wrapperStyle?: CSSProperties | undefined; } & ClassAttributes<...> & HTMLAttributes<...> & { ...; }'.
+client/src/components/ui/chart.tsx(112,3): error TS2339: Property 'label' does not exist on type 'Omit<Props<ValueType, NameType>, PropertiesReadFromContext> & { active?: boolean | undefined; allowEscapeViewBox?: AllowInDimension | undefined; ... 17 more ...; wrapperStyle?: CSSProperties | undefined; } & ClassAttributes<...> & HTMLAttributes<...> & { ...; }'.
