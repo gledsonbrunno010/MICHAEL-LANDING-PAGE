@@ -258,7 +258,7 @@ export default function Home() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(true)}
-                className={`p-2 ${scrolled ? "text-[#003366]" : "text-white"}`}
+                className="p-2 text-white"
               >
                 <Menu className="w-8 h-8" />
               </button>
@@ -386,13 +386,13 @@ export default function Home() {
             {/* Navigation Arrows */}
             <button
               onClick={prevHeroSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all border border-white/20"
+              className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all border border-white/20"
             >
               <ChevronLeft className="w-8 h-8" />
             </button>
             <button
               onClick={nextHeroSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all border border-white/20"
+              className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all border border-white/20"
             >
               <ChevronRight className="w-8 h-8" />
             </button>
