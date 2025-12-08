@@ -270,14 +270,15 @@ export default function Home() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-0 z-50 bg-[#003366] md:hidden"
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="fixed top-20 right-4 z-50 bg-[#003366] md:hidden w-[85vw] max-w-sm rounded-lg shadow-2xl overflow-hidden border border-white/10"
+              style={{ maxHeight: '70vh' }}
             >
-              <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center p-4 border-b border-white/10">
+              <div className="flex flex-col max-h-[70vh] overflow-y-auto">
+                <div className="flex justify-between items-center p-4 border-b border-white/10 bg-[#003366]">
                   <h2 className="text-xl font-bold text-white">Menu</h2>
                   <button onClick={() => setIsMenuOpen(false)} className="text-white p-2">
                     <X className="w-8 h-8" />
@@ -788,7 +789,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <img src="/logo-surgical.png" alt="Michael Cardoso" className="h-48 w-auto object-contain brightness-0 invert" />
+              <h3 className="text-2xl font-montserrat font-bold text-white tracking-wide">
+                Michael Cardoso | A3 Comunicação
+              </h3>
             </div>
             <p className="text-gray-400">Comunicação Visual Estratégica para Negócios Locais</p>
           </div>
