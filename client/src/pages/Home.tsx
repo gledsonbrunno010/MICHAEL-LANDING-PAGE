@@ -216,28 +216,28 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navbar Fixa */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-white"}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-[#003366] md:bg-transparent"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <img src="/logo-original.png" alt="Michael Cardoso | A3 Comunicação" className="h-24 w-auto object-contain" />
+              <img src="/logo-original.png" alt="Michael Cardoso | A3 Comunicação" className="h-20 md:h-24 w-auto object-contain" />
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              <button onClick={() => scrollToSection("hero")} className="text-gray-700 hover:text-[#003366] transition">
+              <button onClick={() => scrollToSection("hero")} className={`${scrolled ? "text-gray-700 hover:text-[#003366]" : "text-white hover:text-gray-200"} transition`}>
                 Início
               </button>
-              <button onClick={() => scrollToSection("about")} className="text-gray-700 hover:text-[#003366] transition">
+              <button onClick={() => scrollToSection("about")} className={`${scrolled ? "text-gray-700 hover:text-[#003366]" : "text-white hover:text-gray-200"} transition`}>
                 Quem Sou
               </button>
-              <button onClick={() => scrollToSection("projects")} className="text-gray-700 hover:text-[#003366] transition">
+              <button onClick={() => scrollToSection("projects")} className={`${scrolled ? "text-gray-700 hover:text-[#003366]" : "text-white hover:text-gray-200"} transition`}>
                 Projetos
               </button>
-              <button onClick={() => scrollToSection("services")} className="text-gray-700 hover:text-[#003366] transition">
+              <button onClick={() => scrollToSection("services")} className={`${scrolled ? "text-gray-700 hover:text-[#003366]" : "text-white hover:text-gray-200"} transition`}>
                 Serviços
               </button>
-              <button onClick={() => scrollToSection("contact")} className="text-gray-700 hover:text-[#003366] transition">
+              <button onClick={() => scrollToSection("contact")} className={`${scrolled ? "text-gray-700 hover:text-[#003366]" : "text-white hover:text-gray-200"} transition`}>
                 Contato
               </button>
               <Button
@@ -254,11 +254,11 @@ export default function Home() {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Agora Branco */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(true)}
-                className="text-[#003366] p-2"
+                className={`p-2 ${scrolled ? "text-[#003366]" : "text-white"}`}
               >
                 <Menu className="w-8 h-8" />
               </button>
@@ -266,7 +266,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
+        {/* Mobile Menu Overlay - Blue Background, White Text */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -274,30 +274,30 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-0 z-50 bg-white md:hidden"
+              className="fixed inset-0 z-50 bg-[#003366] md:hidden"
             >
               <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center p-4 border-b">
-                  <h2 className="text-xl font-bold text-[#003366]">Menu</h2>
-                  <button onClick={() => setIsMenuOpen(false)} className="text-gray-500 p-2">
+                <div className="flex justify-between items-center p-4 border-b border-white/10">
+                  <h2 className="text-xl font-bold text-white">Menu</h2>
+                  <button onClick={() => setIsMenuOpen(false)} className="text-white p-2">
                     <X className="w-8 h-8" />
                   </button>
                 </div>
 
                 <div className="flex flex-col p-6 gap-6 flex-1">
-                  <button onClick={() => scrollToSection("hero")} className="text-2xl font-semibold text-gray-800 hover:text-[#003366] text-left">
+                  <button onClick={() => scrollToSection("hero")} className="text-2xl font-semibold text-white/90 hover:text-white text-left">
                     Início
                   </button>
-                  <button onClick={() => scrollToSection("about")} className="text-2xl font-semibold text-gray-800 hover:text-[#003366] text-left">
+                  <button onClick={() => scrollToSection("about")} className="text-2xl font-semibold text-white/90 hover:text-white text-left">
                     Quem Sou
                   </button>
-                  <button onClick={() => scrollToSection("projects")} className="text-2xl font-semibold text-gray-800 hover:text-[#003366] text-left">
+                  <button onClick={() => scrollToSection("projects")} className="text-2xl font-semibold text-white/90 hover:text-white text-left">
                     Projetos
                   </button>
-                  <button onClick={() => scrollToSection("services")} className="text-2xl font-semibold text-gray-800 hover:text-[#003366] text-left">
+                  <button onClick={() => scrollToSection("services")} className="text-2xl font-semibold text-white/90 hover:text-white text-left">
                     Serviços
                   </button>
-                  <button onClick={() => scrollToSection("contact")} className="text-2xl font-semibold text-gray-800 hover:text-[#003366] text-left">
+                  <button onClick={() => scrollToSection("contact")} className="text-2xl font-semibold text-white/90 hover:text-white text-left">
                     Contato
                   </button>
 
