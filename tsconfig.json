@@ -28,8 +28,7 @@
     "baseUrl": ".",
     "types": [
       "node",
-      "vite/client",
-      "google.maps"
+      "vite/client"
     ],
     "paths": {
       "@/*": [
