@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Mail, MapPin, Zap, TrendingUp, Shield, CheckCircle, MessageSquare, BarChart3, Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { motion, useAnimationFrame, useMotionValue, useTransform, wrap, AnimatePresence } from "framer-motion";
+import Services from "../components/Services";
+import "@fontsource/montserrat/700.css";
 
 const PROJECTS = [
   {
@@ -232,6 +234,9 @@ export default function Home() {
               <button onClick={() => scrollToSection("projects")} className="text-gray-700 hover:text-[#003366] transition">
                 Projetos
               </button>
+              <button onClick={() => scrollToSection("services")} className="text-gray-700 hover:text-[#003366] transition">
+                Serviços
+              </button>
               <button onClick={() => scrollToSection("contact")} className="text-gray-700 hover:text-[#003366] transition">
                 Contato
               </button>
@@ -289,6 +294,9 @@ export default function Home() {
                   <button onClick={() => scrollToSection("projects")} className="text-2xl font-semibold text-gray-800 hover:text-[#003366] text-left">
                     Projetos
                   </button>
+                  <button onClick={() => scrollToSection("services")} className="text-2xl font-semibold text-gray-800 hover:text-[#003366] text-left">
+                    Serviços
+                  </button>
                   <button onClick={() => scrollToSection("contact")} className="text-2xl font-semibold text-gray-800 hover:text-[#003366] text-left">
                     Contato
                   </button>
@@ -324,46 +332,35 @@ export default function Home() {
             backgroundPosition: "center",
           }}
         />
-        {/* Desktop Background */}
+        {/* Desktop Background - 3D Facade */}
         <div
-          className="absolute inset-0 opacity-30 bg-cover bg-center hidden md:block"
+          className="absolute inset-0 opacity-40 bg-cover bg-center hidden md:block"
           style={{
-            backgroundImage: "url('/hero-facade.jpg')",
+            backgroundImage: "url('/hero-3d-gif.png')",
             backgroundAttachment: "fixed",
           }}
         />
         {/* Mobile Overlay - mais escuro */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#003366]/90 to-[#004488]/90 md:hidden" />
-        {/* Desktop Overlay - mais escuro - Opacidade 99 */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003366]/99 to-[#004488]/99 hidden md:block" />
+        {/* Desktop Overlay - Ajustado para transparência pedida (Permitindo ver o fundo) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001122]/85 to-[#002244]/85 hidden md:block" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-          <h1 className="font-['Poppins'] font-bold text-[32px] md:text-[48px] text-[#FFFFFF] mb-4 uppercase">
-            Comunicação visual imponente
-          </h1>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
 
-          <p className="font-['Poppins'] font-semibold text-[18px] md:text-[22px] text-[#D3D3D3] mb-8 max-w-2xl">
-            Fachadas ACM, letreiros, cortes em geral para empresas em Brasília. Atendimento personalizado.
-          </p>
+          {/* Centralized Text Content */}
+          <div className="w-full max-w-5xl text-center flex flex-col items-center gap-6 mb-8 pt-8">
+            <h1 className="font-montserrat font-bold text-[32px] md:text-[64px] text-white uppercase leading-tight tracking-wide drop-shadow-lg">
+              Comunicação visual imponente
+            </h1>
+            <p className="font-montserrat font-bold text-[18px] md:text-[28px] text-gray-200 max-w-3xl drop-shadow-md">
+              Fachadas ACM, letreiros, cortes em geral para empresas em Brasília. Atendimento personalizado.
+            </p>
+          </div>
 
-          <Button
-            id="btn-orcamento-hero"
-            onClick={() => {
-              // @ts-ignore
-              if (window.fbq) window.fbq('track', 'Lead');
-              handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*");
-            }}
-            className="bg-[#25D366] hover:bg-[#128C7E] text-white font-['Poppins'] font-medium text-[16px] md:text-[18px] h-12 w-fit px-8 flex items-center justify-center gap-2 animate-pulse mb-12"
-            style={{ animationDuration: '2s' }}
-          >
-            ORÇAMENTO NO WHATSAPP
-            <MessageCircle className="w-[22px] h-[22px]" />
-          </Button>
-
-          {/* Hero Carousel */}
-          <div className="relative w-full max-w-4xl mx-auto">
+          {/* Carousel (Now Middle) */}
+          <div className="relative w-full max-w-5xl mx-auto mb-10 shadow-2xl rounded-xl border border-white/10">
             {/* Carousel Content */}
-            <div className="overflow-hidden rounded-lg shadow-2xl relative h-[250px] md:h-[400px]">
+            <div className="overflow-hidden rounded-lg relative h-[250px] md:h-[450px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentHeroIndex}
@@ -378,9 +375,9 @@ export default function Home() {
                     alt={PROJECTS[currentHeroIndex].title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 md:p-6 text-left">
-                    <h3 className="text-white text-lg md:text-2xl font-bold">{PROJECTS[currentHeroIndex].title}</h3>
-                    <p className="text-gray-200 text-sm md:text-base">{PROJECTS[currentHeroIndex].desc}</p>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 text-left">
+                    <h3 className="text-white text-2xl font-bold">{PROJECTS[currentHeroIndex].title}</h3>
+                    <p className="text-gray-200 text-lg">{PROJECTS[currentHeroIndex].desc}</p>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -389,22 +386,36 @@ export default function Home() {
             {/* Navigation Arrows */}
             <button
               onClick={prevHeroSlide}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full backdrop-blur-sm transition-all"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all border border-white/20"
             >
-              <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+              <ChevronLeft className="w-8 h-8" />
             </button>
             <button
               onClick={nextHeroSlide}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full backdrop-blur-sm transition-all"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all border border-white/20"
             >
-              <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+              <ChevronRight className="w-8 h-8" />
             </button>
           </div>
-        </div>
-      </section>
+
+          {/* Button (Now Bottom) */}
+          <Button
+            id="btn-orcamento-hero"
+            onClick={() => {
+              // @ts-ignore
+              if (window.fbq) window.fbq('track', 'Lead');
+              handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*");
+            }}
+            className="bg-[#25D366] hover:bg-[#128C7E] text-white font-montserrat font-bold text-[18px] md:text-[20px] h-16 px-10 rounded-full flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(37,211,102,0.4)] transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(37,211,102,0.6)]"
+          >
+            <MessageCircle className="w-7 h-7" />
+            ORÇAMENTO NO WHATSAPP
+          </Button>
+        </div >
+      </section >
 
       {/* Projetos Section */}
-      <section id="projects" className="py-16 md:py-24 bg-[#f8f9fa] overflow-hidden">
+      < section id="projects" className="py-16 md:py-24 bg-[#f8f9fa] overflow-hidden" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-4">Meus Projetos</h2>
@@ -448,10 +459,13 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section >
+
+      {/* Services Section */}
+      < Services />
 
       {/* Quem Sou Section */}
-      <section id="about" className="py-16 md:py-24 bg-white">
+      < section id="about" className="py-16 md:py-24 bg-white" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-4">Quem é Michael Cardoso?</h2>
@@ -525,10 +539,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Por Que Contratar Section */}
-      <section id="why" className="py-16 md:py-24 bg-[#f8f9fa]">
+      < section id="why" className="py-16 md:py-24 bg-[#f8f9fa]" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-4">Por que Michael Cardoso?</h2>
@@ -579,10 +593,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Contato Section */}
-      <section id="contact" className="py-16 md:py-24 bg-white">
+      < section id="contact" className="py-16 md:py-24 bg-white" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-4">Pronto para transformar seu negócio?</h2>
@@ -747,10 +761,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* CTA Final Section */}
-      <section className="py-12 bg-[#003366] text-white">
+      < section className="py-12 bg-[#003366] text-white" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Não deixe seu negócio invisível.</h2>
           <p className="text-lg mb-8 opacity-90">Fale com Michael Cardoso hoje.</p>
@@ -767,10 +781,10 @@ export default function Home() {
             Iniciar Conversa no WhatsApp
           </Button>
         </div>
-      </section>
+      </section >
 
       {/* Footer */}
-      <footer className="bg-[#111] text-white py-12">
+      < footer className="bg-[#111] text-white py-12" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
@@ -799,34 +813,37 @@ export default function Home() {
             <p>© 2025 Michael Cardoso. Todos os direitos reservados.</p>
           </div>
         </div>
-      </footer>
+      </footer >
 
       {/* Floating WhatsApp Button */}
-      <button
+      < button
         id="whatsapp-lead"
         onClick={() => {
           // @ts-ignore
           if (window.fbq) window.fbq('track', 'Lead');
           handleWhatsAppClick("Olá Michael Cardoso. Vim do seu site e gostaria de fazer um orçamento, *vamos marcar um horário?*");
-        }}
+        }
+        }
         className="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 z-40 animate-pulse-gentle"
         title="Abrir WhatsApp"
       >
         <MessageCircle className="w-8 h-8" />
-      </button>
+      </button >
       {/* Lightbox Overlay */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4 cursor-pointer"
-          onClick={closeLightbox}
-        >
-          <img
-            src={selectedImage}
-            alt="Full screen project"
-            className="max-w-full max-h-full object-contain rounded-lg"
-          />
-        </div>
-      )}
-    </div>
+      {
+        selectedImage && (
+          <div
+            className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4 cursor-pointer"
+            onClick={closeLightbox}
+          >
+            <img
+              src={selectedImage}
+              alt="Full screen project"
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+          </div>
+        )
+      }
+    </div >
   );
 }
