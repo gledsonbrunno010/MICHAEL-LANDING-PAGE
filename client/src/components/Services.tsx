@@ -25,6 +25,11 @@ const SERVICES = [
 
 export default function Services() {
     const handleWhatsAppClick = () => {
+        // @ts-ignore
+        if (window.gtag) {
+            // @ts-ignore
+            window.gtag('event', 'conversion', { 'send_to': 'AW-16482084628', 'value': 500, 'currency': 'BRL' });
+        }
         const phoneNumber = "5561981850437";
         const message = encodeURIComponent("Olá! Gostaria de saber mais sobre os serviços de Fachadas e Letreiros.");
         window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");

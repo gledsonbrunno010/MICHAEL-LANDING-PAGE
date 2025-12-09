@@ -196,6 +196,11 @@ export default function Home() {
 
   const handleWhatsAppClick = (message: string) => {
     // @ts-ignore
+    if (window.gtag) {
+      // @ts-ignore
+      window.gtag('event', 'conversion', { 'send_to': 'AW-16482084628', 'value': 500, 'currency': 'BRL' });
+    }
+    // @ts-ignore
     if (window.fbq) {
       // @ts-ignore
       window.fbq('track', 'Lead');
@@ -692,6 +697,11 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
+                      // @ts-ignore
+                      if (window.gtag) {
+                        // @ts-ignore
+                        window.gtag('event', 'conversion', { 'send_to': 'AW-16482084628', 'value': 500, 'currency': 'BRL' });
+                      }
                       // @ts-ignore
                       if (window.fbq) window.fbq('track', 'Lead');
                     }}
