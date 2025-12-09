@@ -3,12 +3,12 @@ import { MessageCircle, Phone, Mail, MapPin, Zap, TrendingUp, Shield, CheckCircl
 import { useEffect, useState, useRef } from "react";
 import { motion, useAnimationFrame, useMotionValue, useTransform, wrap, AnimatePresence } from "framer-motion";
 import Services from "../components/Services";
-import "@fontsource/montserrat/700.css";
+
 
 const PROJECTS = [
   {
     id: 8,
-    image: "/produto-8.jpg",
+    image: "/produto-8.webp",
     title: "Placa em ACM para a Embaixada da União Europeira no Brasil",
     desc: "Trabalho realizado com excelencia em parceria com a A3 ComunicaClau",
     highlight: "Identidade visual única",
@@ -16,7 +16,7 @@ const PROJECTS = [
   },
   {
     id: 1,
-    image: "/produto-1.png",
+    image: "/produto-1.webp",
     title: "Fachada em ACM Supergás Brás",
     desc: "Fachada em ACM e Letra Caixa",
     highlight: "Fachada entregue em tempo record",
@@ -24,7 +24,7 @@ const PROJECTS = [
   },
   {
     id: 5,
-    image: "/produto-5.jpg",
+    image: "/produto-5.webp",
     title: "Ocidental Shopping",
     desc: "Toten para orientação dos clientes",
     highlight: "Projeto elaborado por A3 Comunicação",
@@ -32,7 +32,7 @@ const PROJECTS = [
   },
   {
     id: 3,
-    image: "/produto-3.png",
+    image: "/produto-3.webp",
     title: "V&C Studios",
     desc: "Sinalização interna Completa",
     highlight: "100% de aprovação dos usuários",
@@ -40,7 +40,7 @@ const PROJECTS = [
   },
   {
     id: 4,
-    image: "/produto-4.jpg",
+    image: "/produto-4.webp",
     title: "Sinalização Interna Shopping",
     desc: "Visibilidade única para cada ambiente",
     highlight: "Cada espaço sinalizado e aprovado pelos Bombeiros",
@@ -48,7 +48,7 @@ const PROJECTS = [
   },
   {
     id: 2,
-    image: "/produto-2.png",
+    image: "/produto-2.webp",
     title: "UNIEURO CENTRO UNIVERSITÁRIO",
     desc: "Simbolo da Intituição realizado por nós",
     highlight: "Trabalho realizado com excelência e qualidade",
@@ -56,7 +56,7 @@ const PROJECTS = [
   },
   {
     id: 6,
-    image: "/produto-6.jpg",
+    image: "/produto-6.webp",
     title: "EUROBIKE",
     desc: "Letra Caixa para identificação de parques ou cidades",
     highlight: "Identidade Visual bem definida",
@@ -64,7 +64,7 @@ const PROJECTS = [
   },
   {
     id: 7,
-    image: "/produto-7.jpg",
+    image: "/produto-7.webp",
     title: "Identificação de Condomínios",
     desc: "Corte em ACM para melhor identificação da sua casa",
     highlight: "Elegância para o visual do seu condomínio",
@@ -74,6 +74,7 @@ const PROJECTS = [
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [showCarousel, setShowCarousel] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -174,6 +175,9 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      if (window.scrollY > 300) {
+        setShowCarousel(true);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -225,7 +229,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <img src="/logo-surgical.png" alt="Michael Cardoso | A3 Comunicação" className="h-20 md:h-24 w-auto object-contain" />
+              <img src="/logo-surgical.webp" alt="Michael Cardoso | A3 Comunicação" className="h-20 md:h-24 w-auto object-contain" />
             </div>
 
             {/* Desktop Navigation */}
@@ -334,7 +338,7 @@ export default function Home() {
         <div
           className="absolute inset-0 opacity-30 bg-cover bg-center md:hidden"
           style={{
-            backgroundImage: "url('/michael-cardoso.png')", // Mantendo o background, mas a imagem do Michael saiu do conteudo principal
+            backgroundImage: "url('/michael-cardoso.webp')", // Mantendo o background, mas a imagem do Michael saiu do conteudo principal
             backgroundPosition: "center",
           }}
         />
@@ -342,7 +346,7 @@ export default function Home() {
         <div
           className="absolute inset-0 opacity-40 bg-cover bg-center hidden md:block"
           style={{
-            backgroundImage: "url('/hero-3d-gif.png')",
+            backgroundImage: "url('/hero-3d-gif.png')", // Mantendo gif se for animado, ou convertendo se possivel. Assuming png/webp.
             backgroundAttachment: "fixed",
           }}
         />
@@ -364,45 +368,50 @@ export default function Home() {
           </div>
 
           {/* Carousel (Now Middle) */}
-          <div className="relative w-full max-w-5xl mx-auto mb-10 shadow-2xl rounded-xl border border-white/10">
-            {/* Carousel Content */}
-            <div className="overflow-hidden rounded-lg relative h-[250px] md:h-[450px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentHeroIndex}
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0"
-                >
-                  <img
-                    src={PROJECTS[currentHeroIndex].image}
-                    alt={PROJECTS[currentHeroIndex].title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 text-left">
-                    <h3 className="text-white text-2xl font-bold">{PROJECTS[currentHeroIndex].title}</h3>
-                    <p className="text-gray-200 text-lg">{PROJECTS[currentHeroIndex].desc}</p>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+          {showCarousel ? (
+            <div className="relative w-full max-w-5xl mx-auto mb-10 shadow-2xl rounded-xl border border-white/10">
+              {/* Carousel Content */}
+              <div className="overflow-hidden rounded-lg relative h-[250px] md:h-[450px]">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentHeroIndex}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0"
+                  >
+                    <img
+                      src={PROJECTS[currentHeroIndex].image}
+                      alt={PROJECTS[currentHeroIndex].title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 text-left">
+                      <h3 className="text-white text-2xl font-bold">{PROJECTS[currentHeroIndex].title}</h3>
+                      <p className="text-gray-200 text-lg">{PROJECTS[currentHeroIndex].desc}</p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevHeroSlide}
-              className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all border border-white/20"
-            >
-              <ChevronLeft className="w-8 h-8" />
-            </button>
-            <button
-              onClick={nextHeroSlide}
-              className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all border border-white/20"
-            >
-              <ChevronRight className="w-8 h-8" />
-            </button>
-          </div>
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevHeroSlide}
+                className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all border border-white/20"
+              >
+                <ChevronLeft className="w-8 h-8" />
+              </button>
+              <button
+                onClick={nextHeroSlide}
+                className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all border border-white/20"
+              >
+                <ChevronRight className="w-8 h-8" />
+              </button>
+            </div>
+          ) : (
+            <div className="h-[250px] md:h-[450px] w-full max-w-5xl mx-auto mb-10 bg-transparent" />
+          )}
 
           {/* Button (Now Bottom) */}
           <Button
@@ -450,6 +459,7 @@ export default function Home() {
                     alt={project.title}
                     draggable="false"
                     className="w-full h-64 object-cover cursor-pointer"
+                    loading="lazy"
                     onClick={() => handleImageClick(project.image)}
                   />
                   <div className="p-6">
@@ -502,7 +512,7 @@ export default function Home() {
             </div>
 
             <div className="hidden md:block">
-              <img src="/michael-cardoso.png" alt="Michael Cardoso" className="rounded-lg shadow-lg w-full" />
+              <img src="/michael-cardoso.webp" alt="Michael Cardoso" className="rounded-lg shadow-lg w-full" loading="lazy" />
             </div>
           </div>
 

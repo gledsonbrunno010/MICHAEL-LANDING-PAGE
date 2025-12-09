@@ -7,19 +7,19 @@ const SERVICES = [
         id: 1,
         title: "Fachadas em ACM",
         description: "Modernize a frente do seu negócio com revestimento em ACM de alta durabilidade e acabamento premium.",
-        image: "/service-fachada.png",
+        image: "/service-fachada.webp",
     },
     {
         id: 2,
         title: "Letras Caixa",
         description: "Destaque sua marca com letras em relevo, com ou sem iluminação LED, para um efeito visual impactante.",
-        image: "/service-letras.png",
+        image: "/service-letras.webp",
     },
     {
         id: 3,
         title: "Sinalização Corporativa",
         description: "Oriente seus clientes com totens e placas de sinalização interna e externa com design exclusivo.",
-        image: "/service-sinalizacao.png",
+        image: "/service-sinalizacao.webp",
     }
 ];
 
@@ -62,6 +62,7 @@ export default function Services() {
                                     src={service.image}
                                     alt={service.title}
                                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                    loading="lazy"
                                 />
                             </div>
                             <div className="p-6 flex flex-col flex-1">
