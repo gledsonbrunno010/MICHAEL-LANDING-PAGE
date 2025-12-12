@@ -3,6 +3,7 @@ import { MessageCircle, Phone, Mail, MapPin, Zap, TrendingUp, Shield, CheckCircl
 import { useEffect, useState, useRef } from "react";
 import { motion, useAnimationFrame, useMotionValue, useTransform, wrap, AnimatePresence } from "framer-motion";
 import Services from "../components/Services";
+import Testimonials from "../components/Testimonials";
 
 
 const PROJECTS = [
@@ -610,6 +611,9 @@ export default function Home() {
           </div>
         </div>
       </section >
+
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* Contato Section */}
       < section id="contact" className="py-16 md:py-24 bg-white" >
