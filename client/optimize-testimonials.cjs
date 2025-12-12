@@ -5,14 +5,9 @@ const sharp = require('sharp');
 const publicDir = path.join(__dirname, 'public');
 
 async function optimizeTestimonials() {
-    const files = [
-        'testimonial-1.png',
-        'testimonial-2.png',
-        'testimonial-3.png',
-        'testimonial-4.png'
-    ];
+    const images = Array.from({ length: 12 }, (_, i) => `testimonial-${i + 1}.png`);
 
-    for (const file of files) {
+    for (const file of images) {
         const inputPath = path.join(publicDir, file);
         if (fs.existsSync(inputPath)) {
             const outputPath = path.join(publicDir, file.replace('.png', '.webp'));

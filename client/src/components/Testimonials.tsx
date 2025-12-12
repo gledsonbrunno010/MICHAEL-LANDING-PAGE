@@ -7,6 +7,14 @@ const AVATARS = [
     "/testimonial-2.webp",
     "/testimonial-3.webp",
     "/testimonial-4.webp",
+    "/testimonial-5.webp",
+    "/testimonial-6.webp",
+    "/testimonial-7.webp",
+    "/testimonial-8.webp",
+    "/testimonial-9.webp",
+    "/testimonial-10.webp",
+    "/testimonial-11.webp",
+    "/testimonial-12.webp",
 ];
 
 const TESTIMONIALS = [
@@ -47,7 +55,7 @@ const TESTIMONIALS = [
         name: "Mariana Silva",
         role: "Dentista - Clínica Sorriso",
         location: "Brasília, DF",
-        image: AVATARS[0],
+        image: AVATARS[4],
         content: "Transformou a entrada da minha clínica. Meus pacientes sempre elogiam a nova fachada. Foi um investimento que valeu cada centavo.",
     },
     {
@@ -55,7 +63,7 @@ const TESTIMONIALS = [
         name: "Pedro Santos",
         role: "Sócio do Espaço Gourmet",
         location: "Brasília, DF",
-        image: AVATARS[1],
+        image: AVATARS[5],
         content: "A comunicação visual interna ficou perfeita. As placas de sinalização são elegantes e muito bem acabadas. Excelente parceiro para negócios em Brasília.",
     },
     {
@@ -63,7 +71,7 @@ const TESTIMONIALS = [
         name: "Camila Lima",
         role: "Advogada - Lima & Associados",
         location: "Brasília, DF",
-        image: AVATARS[2],
+        image: AVATARS[6],
         content: "Impressionante a qualidade do corte e dos materiais. A placa do meu escritório transmite a seriedade que eu precisava. Muito obrigada!",
     },
     {
@@ -71,7 +79,7 @@ const TESTIMONIALS = [
         name: "Lucas Pereira",
         role: "Dono da Pereira Fitness",
         location: "Brasília, DF",
-        image: AVATARS[3],
+        image: AVATARS[7],
         content: "Muita agilidade na entrega. Precisava da fachada pronta para a inauguração e o Michael cumpriu o combinado. O visual ficou moderno e chamativo.",
     },
     {
@@ -79,7 +87,7 @@ const TESTIMONIALS = [
         name: "Juliana Martins",
         role: "Diretora da Escola Aprender",
         location: "Brasília, DF",
-        image: AVATARS[0],
+        image: AVATARS[8],
         content: "O atendimento consultivo fez toda a diferença. O Michael nos ajudou a escolher o melhor material para a fachada da escola. Durabilidade excelente.",
     },
     {
@@ -87,7 +95,7 @@ const TESTIMONIALS = [
         name: "Rafael Souza",
         role: "Gerente do Hotel Alvorada",
         location: "Brasília, DF",
-        image: AVATARS[1],
+        image: AVATARS[9],
         content: "Serviço impecável. A revitalização da nossa fachada trouxe um ar de modernidade para o hotel. Equipe técnica muito capacitada e educada.",
     },
     {
@@ -95,7 +103,7 @@ const TESTIMONIALS = [
         name: "Beatriz Gomes",
         role: "Esteticista - Bea Beauty",
         location: "Brasília, DF",
-        image: AVATARS[2],
+        image: AVATARS[10],
         content: "Cada detalhe ficou perfeito. O acabamento das letras caixa é incrível. Minha clínica ficou muito mais sofisticada com o novo visual.",
     },
     {
@@ -103,7 +111,7 @@ const TESTIMONIALS = [
         name: "Gustavo Alves",
         role: "Empresário - Center Car",
         location: "Brasília, DF",
-        image: AVATARS[3],
+        image: AVATARS[11],
         content: "Muito satisfeito com o resultado. A placa em ACM destacou muito minha loja na avenida. Já notei um aumento no fluxo de clientes. Recomendo!",
     }
 ];
@@ -174,7 +182,7 @@ export default function Testimonials() {
                 {/* Row 1 - Right to Left */}
                 <div className="relative flex overflow-hidden w-full mask-linear-gradient">
                     <motion.div
-                        className="flex"
+                        className="flex min-w-max"
                         animate={{
                             x: ["0%", "-50%"],
                         }}
@@ -186,7 +194,6 @@ export default function Testimonials() {
                                 ease: "linear",
                             },
                         }}
-                        style={{ width: "200%" }} // Ensure container is wide enough
                     >
                         {/* Duplicate content strictly for the marquee loop */}
                         {[...ROW_1, ...ROW_1, ...ROW_1, ...ROW_1].map((item, idx) => (
@@ -198,7 +205,7 @@ export default function Testimonials() {
                 {/* Row 2 - Left to Right */}
                 <div className="relative flex overflow-hidden w-full mask-linear-gradient">
                     <motion.div
-                        className="flex"
+                        className="flex min-w-max"
                         animate={{
                             x: ["-50%", "0%"],
                         }}
@@ -210,7 +217,6 @@ export default function Testimonials() {
                                 ease: "linear",
                             },
                         }}
-                        style={{ width: "200%" }}
                     >
                         {/* Duplicate content strictly for the marquee loop */}
                         {[...ROW_2, ...ROW_2, ...ROW_2, ...ROW_2].map((item, idx) => (
