@@ -75,7 +75,7 @@ const PROJECTS = [
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
-  const [showCarousel, setShowCarousel] = useState(false);
+  const [showCarousel, setShowCarousel] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -176,9 +176,6 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      if (window.scrollY > 300) {
-        setShowCarousel(true);
-      }
     };
 
     window.addEventListener("scroll", handleScroll);

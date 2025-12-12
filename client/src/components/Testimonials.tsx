@@ -114,34 +114,35 @@ const ROW_2 = TESTIMONIALS.slice(6, 12);
 
 const MarqueeCard = ({ item }: { item: typeof TESTIMONIALS[0] }) => {
     return (
-        <div className="flex-shrink-0 w-[300px] md:w-[400px] p-6 mx-4 bg-white rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:scale-105 group cursor-pointer relative overflow-hidden">
+        <div className="flex-shrink-0 w-[260px] md:w-[400px] p-5 md:p-6 mx-3 md:mx-4 bg-white rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:scale-105 group cursor-pointer relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Quote className="w-12 h-12 text-[#003366]" />
+                <Quote className="w-10 h-10 md:w-12 md:h-12 text-[#003366]" />
             </div>
 
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
                 <div className="relative">
                     <img
                         src={item.image}
                         alt={item.name}
-                        className="w-14 h-14 rounded-full object-cover border-2 border-[#25D366] p-0.5"
+                        className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-[#25D366] p-0.5"
                         loading="lazy"
                     />
                     <div className="absolute -bottom-1 -right-1 bg-[#25D366] rounded-full p-1 border border-white">
-                        <Star className="w-3 h-3 text-white fill-white" />
+                        <Star className="w-2.5 h-2.5 md:w-3 md:h-3 text-white fill-white" />
                     </div>
                 </div>
                 <div>
-                    <h4 className="font-bold text-[#003366] text-lg leading-tight">{item.name}</h4>
-                    <p className="text-sm text-gray-500">{item.role}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{item.location}</p>
+                    <h4 className="font-bold text-[#003366] text-base md:text-lg leading-tight">{item.name}</h4>
+                    <p className="text-xs md:text-sm text-gray-500">{item.role}</p>
+                    <p className="text-[10px] md:text-xs text-gray-400 mt-0.5">{item.location}</p>
                 </div>
             </div>
 
             <div className="relative z-10">
-                <div className="flex gap-1 mb-3">
+                <p className="text-[10px] uppercase font-bold text-gray-400 mb-1 tracking-wide">Avaliações Google</p>
+                <div className="flex gap-0.5 md:gap-1 mb-2 md:mb-3">
                     {[1, 2, 3, 4, 5].map((star) => (
-                        <Star key={star} className="w-4 h-4 text-[#FFD700] fill-[#FFD700]" />
+                        <Star key={star} className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#FFD700] fill-[#FFD700]" />
                     ))}
                 </div>
                 <p className="text-gray-600 italic text-sm md:text-base leading-relaxed line-clamp-4">
@@ -154,22 +155,22 @@ const MarqueeCard = ({ item }: { item: typeof TESTIMONIALS[0] }) => {
 
 export default function Testimonials() {
     return (
-        <section className="py-24 bg-gradient-to-b from-white to-[#f8f9fa] overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+        <section className="py-16 md:py-24 bg-[#003366] overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-4">O que dizem nossos clientes</h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">O que dizem nossos clientes</h2>
+                    <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
                         Histórias reais de quem transformou a fachada do seu negócio com a nossa qualidade.
                     </p>
                 </motion.div>
             </div>
 
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-6 md:gap-10">
                 {/* Row 1 - Right to Left */}
                 <div className="relative flex overflow-hidden w-full mask-linear-gradient">
                     <motion.div
@@ -181,7 +182,7 @@ export default function Testimonials() {
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 40,
+                                duration: 30,
                                 ease: "linear",
                             },
                         }}
@@ -205,7 +206,7 @@ export default function Testimonials() {
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 45, // Slightly different speed
+                                duration: 35, // Slightly different speed
                                 ease: "linear",
                             },
                         }}
