@@ -171,7 +171,7 @@ export default function Testimonials() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">O que dizem nossos clientes</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">O Que Dizem Nossos Clientes</h2>
                     <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
                         Histórias reais de quem transformou a fachada do seu negócio com a nossa qualidade.
                     </p>
@@ -190,7 +190,7 @@ export default function Testimonials() {
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 30,
+                                duration: 35,
                                 ease: "linear",
                             },
                         }}
@@ -213,7 +213,7 @@ export default function Testimonials() {
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 35, // Slightly different speed
+                                duration: 40, // Slightly different speed
                                 ease: "linear",
                             },
                         }}
