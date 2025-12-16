@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://michael-a3.com.br/sitemap.xml
