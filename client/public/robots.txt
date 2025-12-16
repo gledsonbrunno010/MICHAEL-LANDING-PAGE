@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://michael-a3.com.br/sitemap.xml
+Sitemap: https://michaela3comunicaclau.com.br/sitemap.xml
